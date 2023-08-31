@@ -9,9 +9,10 @@ import (
 	"testing"
 	"time"
 
-	"../../gos7"
-	"sync"
 	"fmt"
+	"sync"
+
+	"github.com/ogofly/gos7"
 )
 
 const (
@@ -74,7 +75,7 @@ func TestMultiTCPClient(t *testing.T) {
 	client, ok := cli.(gos7.Client)
 	if exist && ok {
 		buf := make([]byte, 255)
-		client.AGReadDB(200, 34, 4,  buf)
+		client.AGReadDB(200, 34, 4, buf)
 		var s7 gos7.Helper
 		var result float32
 		s7.GetValueAt(buf, 0, &result)
